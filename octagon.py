@@ -10,7 +10,7 @@ class Octagon:
 
     def circumcircle_radius(self):
         "Радиус описанной окружности"
-        return self.side*self.k/2
+        return self.side/ (2 * math.sin(math.pi / 8))  
     
     def circumcircle_area(self):
         "Площадь описанной окружности"
@@ -19,7 +19,7 @@ class Octagon:
     
     def incircle_radius(self):
         "Радиус вписанной окружности"
-        return self.side/(2*(1 + math.sqrt(2)))
+        return self.side/(2 * math.tan(math.pi / 8))  
     
     def incircle_area(self):
         "Площадь вписанной окружности"
