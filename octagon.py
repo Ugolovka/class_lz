@@ -40,14 +40,18 @@ class Octagon:
         ax.set_xlim(-self.k * self.side, self.k * self.side)
         ax.set_ylim(-self.k * self.side, self.k * self.side)
 
+        # Углы 
         theta = np.linspace(0, 2 * np.pi, 9)[:-1] + np.pi / 8
         x = self.side * np.cos(theta) * self.k / 2
         y = self.side * np.sin(theta) * self.k / 2
-        ax.fill(x, y, color='lightblue', label='Октогон')
+        ax.fill(x, y, color='black', label='Октогон')
 
+        # Окружность описанная
         r_circ = self.circumcircle_radius()
         circle_circ = plt.Circle((0,0), r_circ, color="blue", fill=False, label="Описанная окружность")
         ax.add_patch(circle_circ)
+
+        # Окружность вписанная
         r_in = self.incircle_radius()
         circle_in = plt.Circle((0,0), r_in, color="red", fill=False, label="Вписаннная окружность")
         ax.add_patch(circle_in)
@@ -56,13 +60,3 @@ class Octagon:
         plt.legend()
         plt.grid()
         plt.show()
-
-octagon = Octagon(10)
-print("Радиус описанной окружности", octagon.circumcircle_radius())
-print("Площадь описанной окружности", octagon.circumcircle_area())
-print("Радиус вписанной окружности", octagon.incircle_radius())
-print("Площадь вписанной окружности", octagon.incircle_area())
-print("Площадь октогона", octagon.area())
-print("Периметр октогона", octagon.perimetr())
-
-octagon.draw()
