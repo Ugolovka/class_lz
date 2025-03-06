@@ -37,13 +37,17 @@ class Octagon:
     def draw(self):
         fig, ax = plt.subplots(figsize=(15, 15))
         ax.set_aspect('equal')
-        ax.set_xlim(-self.k * self.side, self.k * self.side)
-        ax.set_ylim(-self.k * self.side, self.k * self.side)
 
-        # Углы 
-        theta = np.linspace(0, 2 * np.pi, 9)[:-1] + np.pi / 8
+        R_out = self.side/ (2 * math.sin(math.pi / 8))  
+        R_in = self.side/(2 * math.tan(math.pi / 8))
+        
+        x = [R_out * math.cos(i * np.pi/4) for i in range(8)]
+        y = [R_out * math.sin(i * np.pi/4) for i in range(8)]
+
+        """theta = np.linspace(0, 2 * np.pi, 9)[:-1] + np.pi / 8
         x = self.side * np.cos(theta) * self.k / 2
-        y = self.side * np.sin(theta) * self.k / 2
+        y = self.side * np.sin(theta) * self.k / 2"""
+        
         ax.fill(x, y, color='black', label='Октогон')
 
         # Окружность описанная
