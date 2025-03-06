@@ -15,16 +15,16 @@ class Octagon:
     def circumcircle_area(self):
         "Площадь описанной окружности"
         r = self.circumcircle_radius()
-        return math.pi*r*2
+        return math.pi * r**2
     
     def incircle_radius(self):
         "Радиус вписанной окружности"
-        return self.side/(2*(math.sqrt(2)+1))
+        return self.side/(2*(1 + math.sqrt(2)))
     
     def incircle_area(self):
         "Площадь вписанной окружности"
         r = self.incircle_radius()
-        return math.pi*r*2
+        return math.pi * r**2
     
     def area(self):
         "Площадь октогона"
@@ -35,7 +35,7 @@ class Octagon:
         return self.side*8
     
     def draw(self):
-        fig, ax = plt.subplots(figsize=(6, 6))
+        fig, ax = plt.subplots(figsize=(15, 15))
         ax.set_aspect('equal')
         ax.set_xlim(-self.k * self.side, self.k * self.side)
         ax.set_ylim(-self.k * self.side, self.k * self.side)

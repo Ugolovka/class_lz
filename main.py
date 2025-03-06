@@ -1,7 +1,7 @@
 from octagon import Octagon
 
 # Объект
-octagon = Octagon(10)
+octagon = Octagon(5)
 
 # Вывод вычислений
 print("Радиус описанной окружности:", octagon.circumcircle_radius())
